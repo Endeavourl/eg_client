@@ -64,10 +64,10 @@ unsigned __stdcall CursorConfineThread(void* p)
 					// wait for full window init, otherwise it breaks
 					Sleep(2000);
 					clip = setupWnd(wnd);
-					clip.left	+= 10;
-					clip.right	-= 10;
-					clip.top	+= 10;
-					clip.bottom	-= 10;
+					clip.left	+= 30;
+					clip.right	-= 30;
+					clip.top	+= 30;
+					clip.bottom	-= 30;
 					// immediately skip to next iteration without Sleeping to confine cursor
 					continue;
 				}
