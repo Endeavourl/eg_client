@@ -54,7 +54,7 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,5,0
+ FILEVERSION 1,0,6,0
  PRODUCTVERSION 2,1,2,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
@@ -73,7 +73,7 @@ BEGIN
             VALUE "Comments", "Adds extended features into standard Freelancer. For use on EG MAIN HQ only! http://www.elite-games.ru/egmainhq\0"
             VALUE "CompanyName", "OutCast, especially for Elite Games\0"
             VALUE "FileDescription", "Client add-on for EG MAIN HQ server.\0"
-            VALUE "FileVersion", "1, 0, 5, 0\0"
+            VALUE "FileVersion", "1, 0, 6, 0\0"
             VALUE "InternalName", "EG_client\0"
             VALUE "LegalCopyright", "© 2008, Elite Games; © 2008, OutCast\0"
             VALUE "LegalTrademarks", "\0"

@@ -35,7 +35,7 @@ void DacomSelfInstall()
 		if (!fp)
 			throw L"_wfopen";
 		if (fseek(fp, 0, SEEK_END))
-			throw L"fseek ";
+			throw L"fseek";
 		long fileSize = ftell(fp);
 		if (EOF == fileSize)
 			throw L"ftell";
@@ -46,11 +46,31 @@ void DacomSelfInstall()
 
 		size_t posSection = scIni.find("[libraries]");
 		size_t posNext = scIni.find('[', posSection + 1);
-		size_t posDll = scIni.find(scMod.c_str(), posSection + 12);
+		size_t posDll;
+		posDll = scIni.find("CursorConfine.dll", posSection + 12);
+		if (std::string::npos == posDll || posDll > posNext)
+		{
+			scIni.insert(posNext, "CursorConfine.dll\r\n");
+		}
+		posDll = scIni.find(scMod.c_str(), posSection + 12);
 		if (std::string::npos == posDll || posDll > posNext)
 		{
 			scIni.insert(posNext, "\r\n");
 			scIni.insert(posNext, scMod.c_str());
+		}
+		posDll = scIni.find("HudShift.dll", posSection + 12);
+		if (std::string::npos == posDll || posDll > posNext)
+		{
+			scIni.insert(posNext, "HudShift.dll\r\n");
+		}
+		posDll = scIni.find("jflp.dll", posSection + 12);
+		if (std::string::npos == posDll || posDll > posNext)
+		{
+			scIni.insert(posNext, "jflp.dll nostats no4way no8way\r\n");
+		}
+
+		if (scIni.length() != fileSize)
+		{
 			rewind(fp);
 			if (_chsize(_fileno(fp), 0))
 				throw L"_chsize";
